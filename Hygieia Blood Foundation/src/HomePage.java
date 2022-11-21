@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -14,39 +13,65 @@ public class HomePage implements ActionListener{
 
 	JFrame frame = new JFrame();
 	JLabel homelabel = new JLabel();
-	JLabel pictureLabel = new JLabel();
+	JLabel picturelabel = new JLabel();
+	JLabel questionlabel = new JLabel();
+	JLabel donorlabel = new JLabel("A Blood Donor");
+	JLabel patientlabel = new JLabel("A Patient");
 	ImageIcon image = new ImageIcon("company_logo.png");
 	ImageIcon logo = new ImageIcon("hygieia_logo.png");
-	JButton donorButton = new JButton("A Blood Donor");
-	JButton patientButton = new JButton("A Patient");
+	ImageIcon donor = new ImageIcon("donor.png");
+	ImageIcon patient = new ImageIcon("patient.png");
+	JButton donorButton = new JButton();
+	JButton patientButton = new JButton();
 	
 	HomePage(String username){
 		
-		patientButton.setBounds(700, 500, 150, 20);
+		Image new_patient = patient.getImage();
+		Image modifiedPatient = new_patient.getScaledInstance(150, 50, Image.SCALE_SMOOTH);
+		patient = new ImageIcon(modifiedPatient);
+		patientButton.setBounds(700, 500, 150, 50);
+		patientButton.setIcon(patient);
+		patientButton.setBackground(new Color(0xE7DECC));
 		patientButton.setFocusable(false);
 		patientButton.addActionListener(this);
 		
-		donorButton.setBounds(540, 500, 150, 20);
+		Image new_donor = donor.getImage();
+		Image modifiedDonor = new_donor.getScaledInstance(150, 50, Image.SCALE_SMOOTH);
+		donor = new ImageIcon(modifiedDonor);
+		donorButton.setBounds(540, 500, 150, 50);
+		donorButton.setIcon(donor);
+		donorButton.setBackground(new Color(0xE7DECC));
 		donorButton.setFocusable(false);
 		donorButton.addActionListener(this);
+		
 		
 		Image new_logo = logo.getImage();
 		Image modifiedLogo = new_logo.getScaledInstance(750, 300, java.awt.Image.SCALE_SMOOTH);
 		logo = new ImageIcon(modifiedLogo);
-		pictureLabel.setBounds(300, 75, 750, 300);
-		pictureLabel.setIcon(logo);
+		picturelabel.setBounds(300, 75, 750, 300);
+		picturelabel.setIcon(logo);
 		
-		homelabel.setBounds(570, 350, 250, 35);
+		patientlabel.setBounds(750, 550, 150, 50);
+		donorlabel.setBounds(570, 550, 150, 50);
+		
+		homelabel.setBounds(590, 350, 250, 35);
 		homelabel.setFont(new Font(null, Font.PLAIN, 25));
 		homelabel.setText("Welcome, " + username);
+		
+		questionlabel.setBounds(650, 450, 250, 35);
+		questionlabel.setFont(new Font(null, Font.PLAIN, 25));
+		questionlabel.setText("You are:");
 		
 		frame.add(patientButton);
 		frame.add(donorButton);
 		frame.getContentPane().setBackground(new Color(0xE7DECC));
 		frame.setTitle("Hygieia Blood Foundation");
 		frame.setIconImage(image.getImage());
+		frame.add(donorlabel);
+		frame.add(patientlabel);
+		frame.add(questionlabel);
 		frame.add(homelabel);
-		frame.add(pictureLabel);
+		frame.add(picturelabel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1370, 749);
 		frame.setResizable(false);
@@ -61,4 +86,3 @@ public class HomePage implements ActionListener{
 	}
 	
 }
-
