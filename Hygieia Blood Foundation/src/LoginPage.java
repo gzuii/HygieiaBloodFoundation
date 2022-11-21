@@ -31,8 +31,7 @@ public class LoginPage implements ActionListener{
 
 	LoginPage(HashMap<String, String> loginInfoOriginal){
 		
-		
-		
+		//image settings
 		Image new_logo = logo.getImage();
 		Image modifiedLogo = new_logo.getScaledInstance(750, 300, java.awt.Image.SCALE_SMOOTH);
 		logo = new ImageIcon(modifiedLogo);
@@ -40,16 +39,19 @@ public class LoginPage implements ActionListener{
 		pictureLabel.setIcon(logo);
 		
 		logininfo = loginInfoOriginal;
-							//x axis, y axis, width, height
+		
+		//label settings		x axis, y axis, width, height
 		usernameLabel.setBounds(500, 400, 75, 25);
 		userpasswordLabel.setBounds(500, 450, 75, 25);
 		
 		messageLabel.setBounds(570, 350, 250, 35);
 		messageLabel.setFont(new Font(null, Font.PLAIN, 25));
 		
+		//field settings
 		usernameField.setBounds(570, 400, 200, 25);
 		userpasswordField.setBounds(570, 450, 200, 25);
 		
+		//button settings
 		loginButton.setBounds(565, 500, 100, 25);
 		loginButton.setFocusable(false);
 		loginButton.addActionListener(this);
@@ -58,6 +60,7 @@ public class LoginPage implements ActionListener{
 		resetButton.setFocusable(false);
 		resetButton.addActionListener(this);
 		
+		//frame settings
 		frame.add(usernameLabel);
 		frame.add(userpasswordLabel);
 		frame.add(messageLabel);
@@ -94,7 +97,8 @@ public class LoginPage implements ActionListener{
 				if(logininfo.get(username).equals(password)) {
 					messageLabel.setForeground(Color.green);
 					messageLabel.setText("Login Successful");
-					HomePage homepage = new HomePage();
+					frame.dispose();
+					HomePage homepage = new HomePage(username);
 				}
 				else {
 					messageLabel.setForeground(Color.red);
