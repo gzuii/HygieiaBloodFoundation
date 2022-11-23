@@ -12,10 +12,15 @@ import javax.swing.JTextField;
 
 public class donorPage implements ActionListener{
 
+	//JFrame declaration
 	JFrame frame = new JFrame();
+	
+	//button declaration
 	JButton backButton = new JButton();
 	ImageIcon image = new ImageIcon("company_logo.png");
 	ImageIcon logo = new ImageIcon("hygieia_logo.png");
+	
+	//textfield declaration
 	JTextField firstNameField = new JTextField();
 	JTextField lastNameField = new JTextField();
 	JTextField middleNameField = new JTextField();
@@ -23,7 +28,11 @@ public class donorPage implements ActionListener{
 	JTextField sex = new JTextField();
 	JTextField address = new JTextField();
 	JTextField contact_num = new JTextField();
+	
+	//combobox for the dropdown list
 	JComboBox vID = new JComboBox();
+	
+	//JLabel declaration
 	JLabel firstnameLabel = new JLabel("First name:");
 	JLabel lastnameLabel = new JLabel("Surname:");
 	JLabel middlenameLabel = new JLabel("Middle Name:");
@@ -33,24 +42,30 @@ public class donorPage implements ActionListener{
 	JLabel contact = new JLabel("Contact number:");
 	JLabel ID = new JLabel("Valid ID:");
 	
+	//constructor
 	donorPage(){
 		
+		//firstname settings
 		firstnameLabel.setBounds(100, 145, 250, 35);
 		firstnameLabel.setFont(new Font(null, Font.PLAIN, 15));
 		firstNameField.setBounds(222, 150, 200, 25);
 		
+		//lastname settings
 		lastnameLabel.setBounds(100, 175, 250, 35);
 		lastnameLabel.setFont(new Font(null, Font.PLAIN, 15));
 		lastNameField.setBounds(222, 180, 200, 25);
-		
+
+		//middlename settings
 		middlenameLabel.setBounds(100, 205, 250, 35);
 		middlenameLabel.setFont(new Font(null, Font.PLAIN, 15));
 		middleNameField.setBounds(222, 210, 200, 25);
 		
+		//age settings 
 		age_text.setBounds(100, 235, 250, 35);
 		age_text.setFont(new Font(null, Font.PLAIN, 15));
 		age.setBounds(222, 240, 200, 25);
 		
+		//frame settings
 		frame.add(age_text);
 		frame.add(age);
 		frame.add(middleNameField);
