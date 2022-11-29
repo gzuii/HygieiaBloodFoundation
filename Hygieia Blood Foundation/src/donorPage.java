@@ -115,3 +115,6 @@ public class donorPage implements ActionListener{
 	}
 	
 }
+
+//new updates
+//added sex, address, contact number and valid ID options
