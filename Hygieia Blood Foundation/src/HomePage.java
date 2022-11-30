@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,8 +24,15 @@ public class HomePage implements ActionListener{
 	ImageIcon patient = new ImageIcon("patient.png");
 	JButton donorButton = new JButton();
 	JButton patientButton = new JButton();
+	JButton signOutButton = new JButton();
 	
 	HomePage(String username){
+		
+		signOutButton.setBounds(650, 600, 70, 70);
+		signOutButton.setText("sign out");
+		signOutButton.setBackground(new Color(0xE7DECC));
+		signOutButton.setFocusable(false);
+		signOutButton.addActionListener(this);
 		
 		Image new_patient = patient.getImage();
 		Image modifiedPatient = new_patient.getScaledInstance(150, 50, Image.SCALE_SMOOTH);
@@ -62,6 +70,7 @@ public class HomePage implements ActionListener{
 		questionlabel.setFont(new Font(null, Font.PLAIN, 25));
 		questionlabel.setText("You are:");
 		
+		frame.add(signOutButton);
 		frame.add(patientButton);
 		frame.add(donorButton);
 		frame.getContentPane().setBackground(new Color(0xE7DECC));
@@ -81,8 +90,14 @@ public class HomePage implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() == donorButton) {
+			frame.dispose();
+			donorPage DonorPage = new donorPage();
+		}
+		if(e.getSource() == signOutButton) {
+			frame.dispose();
+			LoginPage loginpage = new LoginPage(null);
+		}
 	}
 	
 }
